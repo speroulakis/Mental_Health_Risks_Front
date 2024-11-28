@@ -1,5 +1,6 @@
 import os
 import streamlit as st
+import requests
 
 
 # Define the base URI of the API
@@ -11,10 +12,24 @@ if 'API_URI' in os.environ:
     BASE_URI = st.secrets[os.environ.get('API_URI')]
 else:
     BASE_URI = st.secrets['cloud_api_uri']
-# Add a '/' at the end if it's not there
 BASE_URI = BASE_URI if BASE_URI.endswith('/') else BASE_URI + '/'
+# Add a '/' at the end if it's not there
 # Define the url to be used by requests.get to get a prediction (adapt if needed)
-url = BASE_URI + 'predict'
+url = BASE_URI + '/predict'
+
+user_input = st.text_input("Enter some data:")
+
+params = {
+    'input_data': user_input
+}
+response = requests.get(url, params=params)
+
+if response.status_code == 200:
+    prediction = response.json()
+    st.write(f"Prediction: {prediction}")
+else:
+    st.write("Failed to get a valid response from the API.")
+
 
 # Just displaying the source for the API. Remove this in your final version.
 st.markdown(f"Working with {url}")
@@ -25,7 +40,8 @@ st.markdown("Now, the rest is up to you. Start creating your page.")
 # TODO: Add some titles, introduction, ...
 
 
-# TODO: Request user input
+
+
 
 
 # TODO: Call the API using the user's input
