@@ -17,27 +17,28 @@ BASE_URI = BASE_URI if BASE_URI.endswith('/') else BASE_URI + '/'
 # Define the url to be used by requests.get to get a prediction (adapt if needed)
 url = BASE_URI + '/predict'
 
+st.title("Mental Health Risks predictor")
+
+st.markdown('''This project focuses on developing a natural language processing (NLP)
+          model to predict the likelihood of a patient exhibiting risky behaviors associated with mental health conditions.
+          By analyzing text data, the model identifies patterns that may indicate tendencies toward risky behaviors,
+          assisting mental health professionals in early detection and intervention''')
+
 user_input = st.text_input("Enter some data:")
 
 params = {
-    'input_data': user_input
+    'st' : user_input
 }
 response = requests.get(url, params=params)
 
 if response.status_code == 200:
     prediction = response.json()
-    st.write(f"Prediction: {prediction}")
+    st.write(f"Prediction: {prediction.get('prediction')}")
 else:
     st.write("Failed to get a valid response from the API.")
 
 
-# Just displaying the source for the API. Remove this in your final version.
-st.markdown(f"Working with {url}")
 
-st.markdown("Now, the rest is up to you. Start creating your page.")
-
-
-# TODO: Add some titles, introduction, ...
 
 
 
