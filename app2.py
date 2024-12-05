@@ -7,7 +7,9 @@ st.title("PharmaFeel")
 
 url_lstm = 'https://sebnb-930802109890.europe-west1.run.app/lstm'
 
-string = st.text_input('input a string')
+st.write('This project uses NLP (Natural Naguage Processing) to predict the sentiment carried by a sentence when reviewing drugs')
+
+string = st.text_input('Review : ')
 
 if string :
 
