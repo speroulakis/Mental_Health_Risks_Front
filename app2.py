@@ -1,6 +1,25 @@
 import streamlit as st
 import requests
-import os
+import matplotlib.pyplot as plt
+from scipy import misc
+
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f8ff;
+    }
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 8px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.title("PharmaFeel")
 
@@ -9,7 +28,7 @@ url_lstm = 'https://sebnb-930802109890.europe-west1.run.app/lstm'
 
 st.write('This project uses NLP (Natural Naguage Processing) to predict the sentiment carried by a sentence when reviewing drugs')
 
-string = st.text_input('Review : ')
+string = st.text_area('Review : ')
 
 if string :
 
@@ -21,7 +40,9 @@ if string :
         ans = 'Good/Positive'
     else :
         ans = 'Bad/Negative'
-    st.write(f'Feeling detected : {ans}, with a confidence of {pred}')
+    st.write(f'Feeling detected : {ans}, with a score of {round(pred,2)}')
+
+
 else :
     st.warning('Please enter some input')
 
