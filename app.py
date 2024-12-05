@@ -15,14 +15,12 @@ else:
 BASE_URI = BASE_URI if BASE_URI.endswith('/') else BASE_URI + '/'
 # Add a '/' at the end if it's not there
 # Define the url to be used by requests.get to get a prediction (adapt if needed)
-url = BASE_URI + '/predict'
+url = BASE_URI + '/lstm'
 
-st.title("Mental Health Risks predictor")
+st.title("Sentiment Analysis")
 
 st.markdown('''This project focuses on developing a natural language processing (NLP)
-          model to predict the likelihood of a patient exhibiting risky behaviors associated with mental health conditions.
-          By analyzing text data, the model identifies patterns that may indicate tendencies toward risky behaviors,
-          assisting mental health professionals in early detection and intervention''')
+          model to predict the sentiment expressed in a review''')
 
 user_input = st.text_input("Enter some data:")
 
