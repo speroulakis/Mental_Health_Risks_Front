@@ -1,11 +1,7 @@
 import os
 import streamlit as st
 import requests
-import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
-import random
+
 
 
 # Define the base URI of the API
@@ -23,7 +19,7 @@ BASE_URI = BASE_URI if BASE_URI.endswith('/') else BASE_URI + '/'
 
 
 # URL de l'API FastAPI
-url = BASE_URI + '/predict'
+url = BASE_URI + '/lstm'
 
 # Fonction pour appeler l'API FastAPI
 def call_api(text):
