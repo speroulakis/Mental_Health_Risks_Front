@@ -17,7 +17,11 @@ if string :
 
     response = requests.get(url_lstm, params).json()
     pred = response.get('answer')
-    st.write(f'YAAAAAYY the prediction is {pred}')
+    if pred >= 0.5:
+        ans = 'Good/Positive'
+    else :
+        ans = 'Bad/Negative'
+    st.write(f'Feeling detected : {ans}, with a confidence of {pred}')
 else :
     st.warning('Please enter some input')
 
