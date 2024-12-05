@@ -1,8 +1,6 @@
 import streamlit as st
 import requests
-import matplotlib.pyplot as plt
 
-import pandas as pd
 
 
 st.title("PharmaFeel")
