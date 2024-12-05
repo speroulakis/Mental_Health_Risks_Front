@@ -9,7 +9,7 @@ url_lstm = 'https://sebnb-930802109890.europe-west1.run.app/lstm'
 
 st.write('This project uses NLP (Natural Naguage Processing) to predict the sentiment carried by a sentence when reviewing drugs')
 
-string = st.text_input('Review : ')
+string = st.text_area('Review : ')
 
 if string :
 
