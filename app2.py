@@ -38,7 +38,3 @@ if string :
     ax.axis('equal')
     st.write("### Sentiment Analysis Prediction")
     st.pyplot(fig)
-
-
-else :
-    st.warning('Please enter some input')
