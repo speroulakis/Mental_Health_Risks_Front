@@ -7,6 +7,7 @@
 streamlit
 requests
 matplotlib
+time
 
 
 # If you want to display datasets, or if your API returns you dataframes,
