@@ -4,10 +4,9 @@
 # This is the front-end. Heavy calculations go in the back-end, no?
 
 # Sreamlit and extensions
-streamlit
-requests
-matplotlib
-time
+#streamlit
+#requests
+#matplotlib
 
 
 # If you want to display datasets, or if your API returns you dataframes,
